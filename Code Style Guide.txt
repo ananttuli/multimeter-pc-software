@@ -1,0 +1,4 @@
+The Google Java Style guide was followed due to its widespread use and acceptance in industry as convention.
+This style guide makes code readable, maintainable and approachable.
+
+https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml

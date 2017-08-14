@@ -1,0 +1,61 @@
+ .chart{
+     -fx-background-color: black;
+    -fx-text-fill: #FFFFFF;
+ }
+
+ .chart-vertical-grid-lines {
+     -fx-stroke:#2a2a2a;
+ }
+ .chart-plot-background {
+     -fx-background-color: black;
+
+     -fx-text-fill: #FFFFFF;
+ }
+
+ .chart-horizontal-grid-lines {
+     -fx-stroke:#2a2a2a;
+ }
+.chart-series-line {
+    -fx-stroke: dodgerblue;
+    -fx-stroke-width: 1.7px;
+
+    -fx-effect: null;
+    -fx-text-fill: #FFFFFF;
+
+}
+
+ .default-color1.chart-series-line {
+     -fx-stroke: indianred;
+     -fx-stroke-width: 2.5px;
+
+     -fx-effect: null;
+     -fx-text-fill: #FFFFFF;
+
+ }
+
+ .default-color2.chart-series-line {
+     -fx-stroke: yellow;
+     -fx-stroke-width: 2.5px;
+
+     -fx-effect: null;
+     -fx-text-fill: #FFFFFF;
+
+ }
+
+
+.chart-legend{
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+ .chart-legend .label{
+     -fx-background-color: black;
+     -fx-text-fill: white;
+ }
+
+ /*.default-color0.chart-line-symbol { -fx-background-color: green, transparent; -fx-background-radius: 0px;-fx-padding: 0px;}*/
+
+ .default-color0.chart-line-symbol { -fx-background-color: dodgerblue, transparent; -fx-background-radius: 10px;-fx-padding: 5px;}
+ .default-color1.chart-line-symbol { -fx-background-color: indianred; -fx-background-radius: 30px;-fx-padding: 5px;}
+
+ .default-color2.chart-line-symbol { -fx-background-color: yellow; -fx-background-radius: 30px;-fx-padding: 5px;}
+ .default-color3.chart-line-symbol { -fx-background-color: dodgerblue; -fx-background-radius: 30px;-fx-padding: 5px;}

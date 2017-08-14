@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<TitledPane alignment="CENTER_RIGHT" collapsible="false" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1850.0" stylesheets="@customstyle.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prototype.MainSceneController">
+  <content>
+    <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" style="-fx-background-color: white;" stylesheets="@customstyle.css">
+         <children>
+            <TabPane fx:id="tabPane" prefHeight="919.0" prefWidth="1832.0" stylesheets="@customstyle.css" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="connectedTab" text="Connected">
+                  <content>
+                    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="899.0" prefWidth="1831.0">
+                           <children>
+                              <Rectangle arcHeight="30.0" arcWidth="58888.0" fill="#393938" height="243.0" layoutX="447.0" layoutY="642.0" stroke="BLACK" strokeLineJoin="ROUND" strokeType="OUTSIDE" style="-fx-opacity: 0.6;" width="1131.0">
+                                 <effect>
+                                    <DropShadow height="48.21" radius="15.440000000000001" width="15.55" />
+                                 </effect>
+                              </Rectangle>
+                              <Button layoutX="14.0" layoutY="838.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="119.0" text="Exit" />
+                              <Button fx:id="discardButton" layoutX="248.0" layoutY="843.0" mnemonicParsing="false" onAction="#onClickedDiscardButton" prefHeight="34.0" prefWidth="150.0" text="Discard" />
+                              <Button fx:id="pauseButton" layoutX="248.0" layoutY="653.0" mnemonicParsing="false" onAction="#onPlotPaused" prefHeight="40.0" prefWidth="150.0" text="Pause" />
+                              <Label layoutX="1500.0" layoutY="823.0" prefHeight="31.0" prefWidth="113.0" style="-fx-font-size: 22;" text="TP2G10" textFill="#9ea2a8">
+                                 <font>
+                                    <Font name="Tw Cen MT Condensed Extra Bold" size="46.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="multimeterScreenLabel" layoutX="1047.0" layoutY="679.0" prefHeight="92.0" prefWidth="472.0" style="-fx-background-color: #1f7fb1; -fx-border-style: solid; -fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: white; -fx-border-width: 0.1em;" text="0.00" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="42.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="15.0" />
+                                 </padding>
+                              </Label>
+                              <Button layoutX="248.0" layoutY="784.0" mnemonicParsing="false" onAction="#onSaved" prefHeight="36.0" prefWidth="150.0" text="Save" />
+                              <Label fx:id="remoteScreenUnitLabel" layoutX="1470.0" layoutY="702.0" text="-" textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri Light" size="40.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="resumeButton" layoutX="248.0" layoutY="712.0" mnemonicParsing="false" onAction="#onResumed" prefHeight="38.0" prefWidth="150.0" text="Resume" />
+                              <ScrollPane fx:id="connectedScrollPane" layoutX="53.0" layoutY="53.0" prefHeight="523.0" prefWidth="1756.0">
+                                 <content>
+                                    <LineChart fx:id="connectedLineChart" cache="true" cacheHint="SCALE_AND_ROTATE" prefHeight="502.0" prefWidth="1716.0" stylesheets="@plot-style.css">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis fx:id="yAxis" side="LEFT" />
+                                      </yAxis>
+                                    </LineChart>
+                                 </content>
+                              </ScrollPane>
+                              <Label layoutX="1504.0" layoutY="850.0" text="Multimeter" textFill="#ffeaea6e">
+                                 <font>
+                                    <Font name="Calibri Light" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="graphHoverLabelConnected" layoutX="1496.0" layoutY="4.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="49.0" prefWidth="275.0" text="(X,Y)">
+                                 <font>
+                                    <Font size="27.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="serialTestLabel" layoutY="656.0" opacity="0.0" prefHeight="153.0" prefWidth="323.0" text="Serial Test Label" />
+                              <Button fx:id="startLiveButton" layoutX="886.0" layoutY="15.0" mnemonicParsing="false" onAction="#startLiveMode" text="Start" />
+                              <Pane layoutX="54.0" layoutY="576.0" prefHeight="36.0" prefWidth="1755.0" style="-fx-background-color: black;">
+                                 <children>
+                                    <Label fx:id="timeRangeConnected" alignment="CENTER" layoutX="551.0" layoutY="-1.0" prefHeight="32.0" prefWidth="653.0" text="TIME RANGE" textFill="WHITE">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Label fx:id="topScreenLabel" alignment="CENTER" layoutX="490.0" layoutY="677.0" prefHeight="52.0" prefWidth="433.0" style="-fx-background-color: #1f7fb1; -fx-border-style: solid; -fx-border-radius: 10; -fx-border-color: white; -fx-background-radius: 10;" textFill="WHITE">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="bottomScreenLabel" alignment="CENTER" layoutX="492.0" layoutY="729.0" prefHeight="47.0" prefWidth="432.0" style="-fx-background-color: #1f7fb1; -fx-border-style: solid; -fx-border-radius: 10; -fx-border-color: white; -fx-background-radius: 10;" textFill="WHITE">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="b1ButtonMultimeter" layoutX="492.0" layoutY="810.0" mnemonicParsing="false" onAction="#writeToSerialB1" prefHeight="27.0" prefWidth="84.0" text="B1" />
+                              <Button fx:id="b2ButtonMultimeter" layoutX="605.0" layoutY="810.0" mnemonicParsing="false" onAction="#writeToSerialB2" prefHeight="27.0" prefWidth="81.0" text="B2" />
+                              <Button fx:id="b3ButtonMultimeter" layoutX="723.0" layoutY="810.0" mnemonicParsing="false" onAction="#writeToSerialB3" prefHeight="27.0" prefWidth="88.0" text="B3" />
+                              <Button fx:id="b4ButtonMultimeter" layoutX="842.0" layoutY="810.0" mnemonicParsing="false" onAction="#writeToSerialB4" prefHeight="27.0" prefWidth="88.0" text="B4" />
+                              <Label fx:id="logicModeLegendLabel" layoutX="53.0" layoutY="7.0" prefHeight="43.0" prefWidth="508.0" text="Logic Mode " />
+                              <Label fx:id="overLimitLabelLive" layoutX="486.0" layoutY="8.0" prefHeight="41.0" prefWidth="319.0" text="⚠ Over Limit" textFill="#ff7373">
+                                 <font>
+                                    <Font name="System Bold" size="23.0" />
+                                 </font>
+                                 <effect>
+                                    <Glow />
+                                 </effect>
+                              </Label>
+                              <Button fx:id="resetSerialButton" layoutX="737.0" layoutY="15.0" mnemonicParsing="false" onAction="#resetSerial" text="Reset Serial" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab fx:id="disconnectedTab" text="Disconnected">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="525.0" prefWidth="1832.0" stylesheets="@customstyle.css">
+                           <children>
+                              <TabPane layoutX="14.0" layoutY="8.0" prefHeight="864.0" prefWidth="1801.0" tabClosingPolicy="UNAVAILABLE">
+                                <tabs>
+                                  <Tab text="View">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <Button layoutY="49.0" mnemonicParsing="false" onAction="#loadReadings" prefHeight="34.0" prefWidth="152.0" text="Load" />
+                                                <Label fx:id="graphHoverLabelDisconnected" layoutX="1321.0" layoutY="34.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="49.0" prefWidth="445.0" text="(X,Y)">
+                                                   <font>
+                                                      <Font size="27.0" />
+                                                   </font>
+                                                </Label>
+                                                <ScrollPane hbarPolicy="ALWAYS" layoutY="82.0" prefHeight="694.0" prefWidth="1766.0">
+                                                   <content>
+                                                      <LineChart fx:id="disconnectedLineChart" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="597.0" prefWidth="1857.0" stylesheets="@plot-style.css">
+                                                        <xAxis>
+                                                          <CategoryAxis side="BOTTOM" />
+                                                        </xAxis>
+                                                        <yAxis>
+                                                          <NumberAxis fx:id="yAxisDisconnectedLineChart" side="LEFT" />
+                                                        </yAxis>
+                                                      </LineChart>
+                                                   </content>
+                                                </ScrollPane>
+                                                <Pane layoutY="776.0" prefHeight="36.0" prefWidth="1766.0" style="-fx-background-color: black;">
+                                                   <children>
+                                                      <Label fx:id="timeRangeDisconnected" alignment="CENTER" layoutX="551.0" layoutY="3.0" prefHeight="32.0" prefWidth="653.0" text="TIME RANGE" textFill="WHITE">
+                                                         <font>
+                                                            <Font size="17.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </Pane>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                  <Tab text="Mask Testing">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1801.0">
+                                             <children>
+                                                <Button layoutY="72.0" mnemonicParsing="false" onAction="#loadMaskReadings" prefHeight="34.0" prefWidth="152.0" text="Load Data" />
+                                                <Label fx:id="graphHoverLabelMasked" layoutX="1321.0" layoutY="58.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="49.0" prefWidth="445.0" text="(X,Y)">
+                                                   <font>
+                                                      <Font size="27.0" />
+                                                   </font>
+                                                </Label>
+                                                <ScrollPane hbarPolicy="ALWAYS" layoutY="107.0" prefHeight="486.0" prefWidth="1766.0">
+                                                   <content>
+                                                      <LineChart fx:id="maskLineChart" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="428.0" prefWidth="1857.0" stylesheets="@plot-style-mask.css">
+                                                         <xAxis>
+                                                            <NumberAxis side="BOTTOM" />
+                                                         </xAxis>
+                                                         <yAxis>
+                                                            <NumberAxis fx:id="yAxisMaskedLineChart" side="LEFT" />
+                                                         </yAxis>
+                                                      </LineChart>
+                                                   </content>
+                                                </ScrollPane>
+                                                <Pane layoutY="593.0" prefHeight="36.0" prefWidth="1766.0" style="-fx-background-color: black;">
+                                                   <children>
+                                                      <Label fx:id="timeRangeMasked" alignment="CENTER" layoutX="551.0" layoutY="3.0" prefHeight="32.0" prefWidth="653.0" text="TIME RANGE" textFill="WHITE">
+                                                         <font>
+                                                            <Font size="17.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </Pane>
+                                                <ButtonBar layoutX="760.0" layoutY="18.0" prefHeight="40.0" prefWidth="246.0" style="-fx-border-style: dotted;">
+                                                  <buttons>
+                                                      <RadioButton fx:id="highMaskRadioButton" mnemonicParsing="false" onAction="#onClickHighMaskRadio" text="High Mask" />
+                                                      <RadioButton fx:id="lowMaskRadioButton" mnemonicParsing="false" onAction="#onClickLowMaskRadio" text="Low Mask" />
+                                                  </buttons>
+                                                </ButtonBar>
+                                                <Button layoutX="1023.0" layoutY="25.0" mnemonicParsing="false" onAction="#saveMaskToDisk" text="Save Mask" />
+                                                <Button layoutX="1172.0" layoutY="24.0" mnemonicParsing="false" onAction="#testMask" text="Test Mask" />
+                                                <Label layoutX="14.0" layoutY="42.0" text="Delete mask points - Shift + Left Click" />
+                                                <Label layoutX="14.0" layoutY="7.0" text="Instructions" />
+                                                <Label layoutX="14.0" layoutY="28.0" text="Add mask points     - Left Click" />
+                                                <TableView fx:id="maskFailureTable" layoutX="283.0" layoutY="629.0" prefHeight="200.0" prefWidth="1236.0" />
+                                                <Button fx:id="loadMaskFileButton" layoutX="162.0" layoutY="72.0" mnemonicParsing="false" onAction="#loadMaskFile" prefHeight="34.0" prefWidth="158.0" text="Load Mask File" />
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children></AnchorPane>
+  </content>
+   <graphic>
+      <MenuButton fx:id="modeMenuButton" accessibleText="Choose mode please" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="299.0" stylesheets="@customstyle.css" text="Mode">
+        <items>
+          <MenuItem fx:id="connectedMenuItem" mnemonicParsing="false" onAction="#onConnectedMode" text="Connected" />
+          <MenuItem fx:id="disconnectedMenuItem" mnemonicParsing="false" onAction="#onDisconnectedMode" text="Disconnected" />
+        </items>
+         <font>
+            <Font name="Calibri Light" size="15.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </MenuButton>
+   </graphic>
+</TitledPane>

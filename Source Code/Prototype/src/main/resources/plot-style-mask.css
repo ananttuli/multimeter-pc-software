@@ -1,0 +1,83 @@
+ .chart{
+     -fx-background-color: black;
+    -fx-text-fill: #FFFFFF;
+ }
+
+ .chart-vertical-grid-lines {
+     -fx-stroke:#2a2a2a;
+ }
+ .chart-plot-background {
+     -fx-background-color: black;
+     -fx-text-fill: #FFFFFF;
+ }
+
+ .chart-horizontal-grid-lines {
+     -fx-stroke:#2a2a2a;
+ }
+
+ /* Low */
+ .default-color1.chart-series-line {
+    -fx-stroke: yellowgreen;
+     -fx-opacity: 40%;
+    -fx-stroke-width: 8px;
+    -fx-text-fill: #FFFFFF;
+
+
+}
+
+ /*High*/
+ .default-color0.chart-series-line {
+     -fx-stroke: indianred;
+
+     -fx-opacity: 40%;
+     -fx-stroke-width: 8px;
+     -fx-effect: null;
+     -fx-text-fill: #FFFFFF;
+
+
+ }
+/* Data */
+ .default-color2.chart-series-line {
+
+     -fx-stroke: dodgerblue;
+     -fx-stroke-width: 1.7px;
+     -fx-effect: null;
+     -fx-text-fill: #FFFFFF;
+
+
+ }
+
+ .default-color3.chart-series-line {
+
+     -fx-stroke: white;
+     -fx-stroke-width: 1.7px;
+     -fx-stroke-dash-array: 6px;
+     -fx-effect: null;
+     -fx-text-fill: #FFFFFF;
+     -fx-legend-visible: false;
+ }
+ .default-color4.chart-series-line {
+
+     -fx-stroke: white;
+     -fx-stroke-width: 1.7px;
+     -fx-stroke-dash-array: 6px;
+     -fx-effect: null;
+     -fx-text-fill: #FFFFFF;
+     -fx-legend-visible: false;
+ }
+
+.chart-legend{
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+ .chart-legend .label{
+     -fx-background-color: black;
+     -fx-text-fill: white;
+ }
+
+ /*.default-color0.chart-line-symbol { -fx-background-color: green, transparent; -fx-background-radius: 0px;-fx-padding: 0px;}*/
+
+ .default-color0.chart-line-symbol { -fx-background-color: indianred, transparent; -fx-background-radius: 10px;-fx-padding: 5px;}
+ .default-color1.chart-line-symbol { -fx-background-color: yellowgreen; -fx-background-radius: 30px;-fx-padding: 5px;}
+
+ .default-color2.chart-line-symbol { -fx-background-color: dodgerblue; -fx-background-radius: 30px;-fx-padding: 5px;}

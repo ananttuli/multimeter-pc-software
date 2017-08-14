@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<TitledPane animated="false" collapsible="false" contentDisplay="RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1850.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prototype.MainSceneController">
+  <content>
+    <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" style="-fx-background-color: #DFE2DB;">
+         <children>
+            <TabPane fx:id="tabPane" prefHeight="919.0" prefWidth="1832.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="connectedTab" text="Connected">
+                  <content>
+                    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="878.0" prefWidth="1831.0">
+                           <children>
+                              <Button fx:id="backButton" layoutX="532.0" layoutY="687.0" mnemonicParsing="false" onAction="#onClickBackButton" prefHeight="38.0" prefWidth="114.0" text="Go Back" />
+                              <Button layoutX="899.0" layoutY="458.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Discard" />
+                              <Button layoutX="758.0" layoutY="458.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Pause" />
+                              <LineChart fx:id="connectedLineChart" layoutX="115.0" layoutY="56.0" prefHeight="383.0" prefWidth="1691.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis fx:id="yAxis" side="LEFT" />
+                                </yAxis>
+                              </LineChart>
+                              <MenuButton fx:id="measureTypeMenuButton" layoutX="483.0" layoutY="609.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="200.0" text="Measurement Type">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#onRSelected" text="R Ω" />
+                                  <MenuItem mnemonicParsing="false" onAction="#onVdcSelected" text="V ⎓" />
+                                    <MenuItem mnemonicParsing="false" onAction="#onVacSelected" text="V ~" />
+                                    <MenuItem mnemonicParsing="false" onAction="#onAdcSelected" text="A ⎓" />
+                                    <MenuItem mnemonicParsing="false" onAction="#onAacSelected" text="A ~" />
+                                    <MenuItem mnemonicParsing="false" text="Continuity" />
+                                </items>
+                              </MenuButton>
+                              <Label fx:id="multimeterScreenLabel" layoutX="786.0" layoutY="556.0" prefHeight="79.0" prefWidth="227.0" style="-fx-border-style: solid; -fx-border-radius: 5;" text="+ 12.5" textFill="#030000">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                              <MenuButton layoutX="519.0" layoutY="545.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="161.0" text="Samples/Time">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" text="1 per second" />
+                                    <MenuItem mnemonicParsing="false" text="2 per second" />
+                                    <MenuItem mnemonicParsing="false" text="1 per 5 seconds" />
+                                    <MenuItem mnemonicParsing="false" text="1 per 10 seconds" />
+                                    <MenuItem mnemonicParsing="false" text="1 per minute" />
+                                    <MenuItem mnemonicParsing="false" text="1 per 2 minutes" />
+                                    <MenuItem mnemonicParsing="false" text="1 per 5 minutes" />
+                                    <MenuItem mnemonicParsing="false" text="1 per 10 minutes" />
+                                 </items>
+                              </MenuButton>
+                              <Button layoutX="633.0" layoutY="458.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Save" />
+                              <Label fx:id="remoteScreenUnitLabel" layoutX="932.0" layoutY="573.0" text="Unit">
+                                 <font>
+                                    <Font name="Calibri Light" size="40.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="dummySaveButton1" layoutX="1040.0" layoutY="458.0" mnemonicParsing="false" onAction="#dummySaveReadings" prefHeight="31.0" prefWidth="120.0" text="Dummy save" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab fx:id="disconnectedTab" text="Disconnected">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="525.0" prefWidth="1832.0" stylesheets="@customstyle.css">
+                           <children>
+                              <Button layoutX="1666.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadReadings" prefHeight="33.0" prefWidth="152.0" text="Load" />
+                              <LineChart fx:id="disconnectedLineChart" layoutX="67.0" layoutY="66.0" prefHeight="645.0" prefWidth="1699.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis fx:id="yAxisDisconnectedLineChart" side="LEFT" />
+                                </yAxis>
+                              </LineChart>
+                              <Label fx:id="graphValueLabel" layoutX="227.0" layoutY="2.0" prefHeight="49.0" prefWidth="592.0" />
+                              <Button fx:id="dummySaveButton" layoutX="1520.0" layoutY="14.0" mnemonicParsing="false" onAction="#dummySaveReadings" prefHeight="32.0" prefWidth="115.0" text="Dummy save" />
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+            <Label fx:id="modeHelperLabel" text="Choose Mode">
+               <font>
+                  <Font name="Calibri Light" size="39.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Label>
+         </children></AnchorPane>
+  </content>
+   <graphic>
+      <MenuButton fx:id="modeMenuButton" alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" text="Mode">
+        <items>
+          <MenuItem fx:id="connectedMenuItem" mnemonicParsing="false" onAction="#onConnectedMode" text="Connected" />
+          <MenuItem fx:id="disconnectedMenuItem" mnemonicParsing="false" onAction="#onDisconnectedMode" text="Disconnected" />
+        </items>
+      </MenuButton>
+   </graphic>
+</TitledPane>
